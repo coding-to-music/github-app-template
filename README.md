@@ -450,12 +450,13 @@ Double-check that you've copied the correct public key into your .env file.
 
 ### Q: My server isn't listening to events! The Smee client is running in a Terminal window, and I'm installing the app on a repository on GitHub, but I don't see any output in the Terminal window where I'm running the server.
 
-A: You may not be running the Smee client, running the Smee command with the wrong parameters or you may not have the correct Smee domain in your GitHub App settings. First check to make sure the Smee client is running in a Terminal tab. If that's not the problem, visit your app settings page and check the fields shown in "Step 2. Register a new GitHub App." Make sure the domain in those fields matches the domain you used in your smee -u <unique_channel> command in "Step 1. Start a new Smee channel." If none of the above work, check that you are running the full Smee command including the --path and --port options, for example: smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000 (replacing https://smee.io/qrfeVRbFbffd6vD with your own Smee domain).
+> A: You may not be running the Smee client, running the Smee command with the wrong parameters or you may not have the correct Smee domain in your GitHub App settings. First check to make sure the Smee client is running in a Terminal tab. If that's not the problem, visit your app settings page and check the fields shown in "Step 2. Register a new GitHub App." Make sure the domain in those fields matches the domain you used in your smee -u <unique_channel> command in "Step 1. Start a new Smee channel." If none of the above work, check that you are running the full Smee command including the --path and --port options, for example: smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000 (replacing https://smee.io/qrfeVRbFbffd6vD with your own Smee domain).
 
 ### Q: I'm getting an Octokit::NotFound 404 error in my debug output:
 
 2018-12-06 15:00:56 - Octokit::NotFound - POST https://api.github.com/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
-A: Ensure the variables in your .env file are correct. Make sure that you have not set identical variables in any other environment variable files like bash_profile. You can check the environment variables your app is using by adding puts statements to your app code and re-running the code. For example, to ensure you have the correct private key set, you could add puts PRIVATE_KEY to your app code:
+
+> A: Ensure the variables in your .env file are correct. Make sure that you have not set identical variables in any other environment variable files like bash_profile. You can check the environment variables your app is using by adding puts statements to your app code and re-running the code. For example, to ensure you have the correct private key set, you could add puts PRIVATE_KEY to your app code:
 
 ```java
 PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))

@@ -1,0 +1,24 @@
+{
+  "name": "github-app-template",
+  "version": "1.0.0",
+  "description": "# 🚀 GitHub App Template for Auth with Ruby 🚀",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "deploy": "git add . && git commit -m Build && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coding-to-music/github-app-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coding-to-music/github-app-template/issues"
+  },
+  "homepage": "https://github.com/coding-to-music/github-app-template#readme",
+  "dependencies": {
+    "smee-client": "^1.2.2"
+  }
+}

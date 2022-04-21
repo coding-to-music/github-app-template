@@ -47,3 +47,64 @@ git push -u origin main
 ```java
 git add . && git commit -m Build && git push
 ```
+
+### Webhook Proxy URL
+
+```java
+https://smee.io/c6cnRNjYW9wqx1Y3
+```
+
+This page will automatically update as things happen.
+
+Use the CLI
+
+```java
+npm install --global smee-client
+```
+
+Then the smee command will forward webhooks from smee.io to your local development environment.
+
+```java
+smee -u https://smee.io/c6cnRNjYW9wqx1Y3
+```
+
+For usage info:
+
+```java
+smee --help
+```
+
+Use the Node.js client
+
+```java
+npm install --save smee-client
+```
+
+Then:
+
+```java
+const SmeeClient = require('smee-client')
+
+const smee = new SmeeClient({
+source: 'https://smee.io/c6cnRNjYW9wqx1Y3',
+target: 'http://localhost:3000/events',
+logger: console
+})
+
+const events = smee.start()
+
+// Stop forwarding events
+events.close()
+```
+
+Using Probot's built-in support
+
+```java
+$ npm install --save smee-client
+```
+
+Then set the environment variable:
+
+```java
+WEBHOOK_PROXY_URL=https://smee.io/c6cnRNjYW9wqx1Y3
+```

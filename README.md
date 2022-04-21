@@ -126,7 +126,8 @@ The smee --url <unique_channel> command tells Smee to forward all webhook events
 
 We recommend leaving this Terminal window open and keeping Smee connected while you complete the rest of the steps in this guide. Although you can disconnect and reconnect the Smee client without losing your unique domain (unlike ngrok), you may find it easier to leave it connected and do other command-line tasks in a different Terminal window.
 
-Step 2. Register a new GitHub App
+## Step 2. Register a new GitHub App
+
 If you don't yet have a GitHub account, now is a great time to join. Don't forget to verify your email before continuing! To register a new app, visit the app settings page in your GitHub profile, and click New GitHub App.
 
 GitHub website, showing the **New App**
@@ -135,56 +136,64 @@ You'll see a form where you can enter details about your app. See "Creating a Gi
 
 Note: You can always update these settings later to point to a hosted server.
 
-For the "Homepage URL", use the domain issued by Smee. For example:
+- For the "Homepage URL", use the domain issued by Smee. For example:
 
-Form with Smee domain filled in for homepage URL
+- Form with Smee domain filled in for homepage URL
 
-For the "Webhook URL", again use the domain issued by Smee. For example:
+- For the "Webhook URL", again use the domain issued by Smee. For example:
 
-Form with Smee domain filled in for webhook URL
+- Form with Smee domain filled in for webhook URL
 
 For the "Webhook secret", create a password to secure your webhook endpoints. This should be something that only you (and GitHub, via this form) know. The secret is important because you will be receiving payloads from the public internet, and you'll use this secret to verify the webhook sender. Note that the GitHub App settings say the webhook secret is optional, which is true in most cases, but for the template app code to work, you must set a webhook secret.
 
-Form with webhook secret filled in
+- Form with webhook secret filled in
 
 On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions" section, scroll down to "Metadata" and select Access: Read-only. If you decide to extend this template app, you can update these permissions later.
 
 At the bottom of the Permissions & Webhooks page, specify whether this is a private app or a public app. This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting Only on this account.
 
-GitHub App privacy
+- GitHub App privacy
 
-Click Create GitHub App to create your app!
+- Click Create GitHub App to create your app!
 
-Step 3. Save your private key and App ID
+## Step 3. Save your private key and App ID
+
 After you create your app, you'll be taken back to the app settings page. You have two more things to do here:
 
-Generate a private key for your app. This is necessary to authenticate your app later on. Scroll down on the page and click Generate a private key. Save the resulting PEM file (called something like app-name-date-private-key.pem) in a directory where you can find it again.
+- Generate a private key for your app. This is necessary to authenticate your app later on. Scroll down on the page and click Generate a private key. Save the resulting PEM file (called something like app-name-date-private-key.pem) in a directory where you can find it again.
 
-The private key generation dialog
+- The private key generation dialog
 
-Note the app ID GitHub has assigned your app. You'll need this to prepare your runtime environment.
+- Note the app ID GitHub has assigned your app. You'll need this to prepare your runtime environment.
 
-Your app's ID number
-Step 4. Prepare the runtime environment
+- Your app's ID number
+
+## Step 4. Prepare the runtime environment
+
 To keep your information secure, we recommend putting all your app-related secrets in your computer's memory where your app can find them, rather than putting them directly in your code. A handy development tool called dotenv loads project-specific environment variables from a .env file to ENV. Never check your .env file into GitHub. This is a local file that stores sensitive information that you don't want on the public internet. The .env file is already included in the repository's .gitignore file to prevent that.
 
 The template code you downloaded in the Prerequisites section already has an example file called .env-example. Rename the example file from .env-example to .env or create a copy of the .env-example file called .env. You haven't installed dotenv yet, but you will install it later in this quickstart when you run bundle install. Note: Quickstarts that reference the steps in this guide may include additional environment variables in the .env-example file. Reference the quickstart guide for the project you've cloned on GitHub for guidance setting those additional environment variables.
 
-You need to add these variables to the .env file:
+- You need to add these variables to the .env file:
 
-GITHUB_PRIVATE_KEY: Add the private key you generated and saved previously. Open the .pem file with a text editor or use the command line to display the contents of the file: cat path/to/your/private-key.pem. Copy the entire contents of the file as the value of GITHUB_PRIVATE_KEY in your .env file. Note: Because the PEM file is more than one line you'll need to add quotes around the value like the example below.
-GITHUB_APP_IDENTIFIER: Use the app ID you noted in the previous section.
-GITHUB_WEBHOOK_SECRET: Add your webhook secret.
+- GITHUB_PRIVATE_KEY: Add the private key you generated and saved previously. Open the .pem file with a text editor or use the command line to display the contents of the file: cat path/to/your/private-key.pem. Copy the entire contents of the file as the value of GITHUB_PRIVATE_KEY in your .env file. Note: Because the PEM file is more than one line you'll need to add quotes around the value like the example below.
+- GITHUB_APP_IDENTIFIER: Use the app ID you noted in the previous section.
+- GITHUB_WEBHOOK_SECRET: Add your webhook secret.
+
 Here is an example .env file:
 
-GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
-...
-HkVN9...
-...
------END DSA PRIVATE KEY-----"
+```java
+ GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+  ...
+  HkVN9...
+  ...
+  -----END DSA PRIVATE KEY-----"
 GITHUB_APP_IDENTIFIER=12345
 GITHUB_WEBHOOK_SECRET=your webhook secret
-Step 5. Review the GitHub App template code
+```
+
+## Step 5. Review the GitHub App template code
+
 The template app code already contains some code that every GitHub App will need. This sections walks you through the code that already exists in the GitHub App template. There aren't any steps that you need to complete in this section. If you're already familiar with the template code, you can skip ahead to "Step 6. Start the server."
 
 Open up the template_server.rb file in your favorite text editor. You'll see comments throughout this file that provide additional context for the template code. We recommend reading those comments carefully and even adding your own comments to accompany new code you write.
@@ -195,89 +204,106 @@ The next code you'll see is the class GHApp < Sinatra::Application declaration. 
 
 Out of the box, the class in the template does the following things:
 
-Read the environment variables
-Turn on logging
-Define a before filter
-Define the route handler
-Define the helper methods
-Read the environment variables
-The first thing that this class does is read the three environment variables you set in "Step 4. Prepare the runtime environment" and store them in variables to use later:
+- Read the environment variables
+- Turn on logging
+- Define a before filter
+- Define the route handler
+- Define the helper methods
+- Read the environment variables
+- The first thing that this class does is read the three environment variables you set in "Step 4. -
 
+Prepare the runtime environment" and store them in variables to use later:
+
+```java
 # Expects that the private key in PEM format. Converts the newlines
 
 PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
-
-# Your registered app must have a secret set. The secret is used to verify
-
-# that webhooks are sent by GitHub.
-
+# Your registered app must have a secret set. The secret is used to verify that webhooks are sent by GitHub.
 WEBHOOK_SECRET = ENV['GITHUB_WEBHOOK_SECRET']
+```
 
+```java
 # The GitHub App's identifier (type integer) set when registering an app.
 
 APP_IDENTIFIER = ENV['GITHUB_APP_IDENTIFIER']
-Turn on logging
+```
+
+## Turn on logging
+
 Next is a code block that enables logging during development, which is the default environment in Sinatra. This code turns on logging at the DEBUG level to show useful output in the Terminal while you are developing the app:
 
+```java
 # Turn on Sinatra's verbose logging during development
-
 configure :development do
-set :logging, Logger::DEBUG
+  set :logging, Logger::DEBUG
 end
-Define a before filter
+```
+
+## Define a before filter
+
 Sinatra uses before filters that allow you to execute code before the route handler. The before block in the template calls four helper methods. The template app defines those helper methods in a later section.
 
+```java
 # Before each request to the `/event_handler` route
-
 before '/event_handler' do
-get_payload_request(request)
-verify_webhook_signature
-authenticate_app
-
-# Authenticate the app installation in order to run API operations
-
-authenticate_installation(@payload)
+  get_payload_request(request)
+  verify_webhook_signature
+  authenticate_app
+  # Authenticate the app installation in order to run API operations
+  authenticate_installation(@payload)
 end
-Define a route handler
+```
+
+## Define a route handler
+
 An empty route is included in the template code. This code handles all POST requests to the /event_handler route. You won't write this event handler in this quickstart, but see the other quickstart guides for examples of how to extend this template app.
 
+```java
 post '/event_handler' do
 
 end
-Define the helper methods
+```
+
+## Define the helper methods
+
 The helper methods in this template do most of the heavy lifting. Four helper methods are defined in this section of the code.
 
-Handling the webhook payload
+## Handling the webhook payload
+
 The first method get_payload_request captures the webhook payload and converts it to JSON format, which makes accessing the payload's data much easier.
 
-Verifying the webhook signature
+## Verifying the webhook signature
+
 The second method verify_webhook_signature performs verification of the webhook signature to ensure that GitHub generated the event. To learn more about the code in the verify_webhook_signature helper method, see "Securing your webhooks." If the webhooks are secure, this method will log all incoming payloads to your Terminal. The logger code is helpful in verifying your web server is working but you can always remove it later.
 
-Authenticating as a GitHub App
+## Authenticating as a GitHub App
+
 To make API calls, you'll be using the Octokit library. Doing anything interesting with this library will require you, or rather your app, to authenticate. GitHub Apps have two methods of authentication:
 
-Authenticating as a GitHub App using a JSON Web Token (JWT).
+## Authenticating as a GitHub App using a JSON Web Token (JWT).
+
 Authenticating as a specific installation of a GitHub App using an installation access token.
 You'll learn about authenticating as an installation in the next section.
 
-Authenticating as a GitHub App lets you do a couple of things:
+## Authenticating as a GitHub App lets you do a couple of things:
 
-You can retrieve high-level management information about your GitHub App.
-You can request access tokens for an installation of the app.
-For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token.
+- You can retrieve high-level management information about your GitHub App.
+- You can request access tokens for an installation of the app.
+- For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token.
 
 Before you can use the Octokit.rb library to make API calls, you'll need to initialize an Octokit client authenticated as a GitHub App. The authenticate_app helper method does just that!
 
-# Instantiate an Octokit client authenticated as a GitHub App.
+- # Instantiate an Octokit client authenticated as a GitHub App.
 
-# GitHub App authentication requires that you construct a
+- # GitHub App authentication requires that you construct a
 
-# JWT (https://jwt.io/introduction/) signed with the app's private key,
+- # JWT (https://jwt.io/introduction/) signed with the app's private key,
 
-# so GitHub can be sure that it came from the app an not altered by
+- # so GitHub can be sure that it came from the app an not altered by
 
-# a malicious third party.
+- # a malicious third party.
 
+```java
 def authenticate*app
 payload = { # The time that this JWT was issued, \_i.e.* now.
 iat: Time.now.to_i,
@@ -289,6 +315,7 @@ iat: Time.now.to_i,
       iss: APP_IDENTIFIER
 
 }
+```
 
 # Cryptographically sign the JWT
 

@@ -181,6 +181,8 @@ Note: You can always update these settings later to point to a hosted server.
 
 - Form with Smee domain filled in for webhook URL
 
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-url.png?raw=true)
+
 - For the "Webhook secret", create a password to secure your webhook endpoints. This should be something that only you (and GitHub, via this form) know. The secret is important because you will be receiving payloads from the public internet, and you'll use this secret to verify the webhook sender. Note that the GitHub App settings say the webhook secret is optional, which is true in most cases, but for the template app code to work, you must set a webhook secret.
 
 - Form with webhook secret filled in
@@ -196,8 +198,6 @@ Note: You can always update these settings later to point to a hosted server.
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/create_app.png?raw=true)
 
 - Click Create GitHub App to create your app!
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-url.png?raw=true)
 
 ## Step 3. Save your private key and App ID
 

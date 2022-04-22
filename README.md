@@ -130,6 +130,20 @@ We recommend leaving this Terminal window open and keeping Smee connected while 
 
 If you don't yet have a GitHub account, now is a great time to join. Don't forget to verify your email before continuing! To register a new app, visit the app settings page in your GitHub profile, and click New GitHub App.
 
+![image]()
+
+app_id.png  
+homepage-url.png  
+new-app.png  
+sinatra-404.png  
+smee-unique-domain.png  
+webhook-url.png
+create_app.png  
+install_permissions.png  
+private_key.png  
+smee-new-channel.png  
+webhook-secret.png
+
 GitHub website, showing the **New App**
 
 You'll see a form where you can enter details about your app. See "Creating a GitHub App" for general information about the fields on this page. For the purposes of this guide, you'll need to enter specific data in a few fields:

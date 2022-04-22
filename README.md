@@ -165,16 +165,6 @@ If you don't yet have a GitHub account, now is a great time to join. Don't forge
 
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/new-app.png?raw=true)
 
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/homepage-url.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-secret.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/private_key.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/create_app.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-url.png?raw=true)
-
 GitHub website, showing the **New App**
 
 You'll see a form where you can enter details about your app. See "Creating a GitHub App" for general information about the fields on this page. For the purposes of this guide, you'll need to enter specific data in a few fields:
@@ -185,13 +175,19 @@ Note: You can always update these settings later to point to a hosted server.
 
 - Form with Smee domain filled in for homepage URL
 
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/homepage-url.png?raw=true)
+
 - For the "Webhook URL", again use the domain issued by Smee. For example:
 
 - Form with Smee domain filled in for webhook URL
 
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-secret.png?raw=true)
+
 - For the "Webhook secret", create a password to secure your webhook endpoints. This should be something that only you (and GitHub, via this form) know. The secret is important because you will be receiving payloads from the public internet, and you'll use this secret to verify the webhook sender. Note that the GitHub App settings say the webhook secret is optional, which is true in most cases, but for the template app code to work, you must set a webhook secret.
 
 - Form with webhook secret filled in
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/private_key.png?raw=true)
 
 - On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions" section, scroll down to "Metadata" and select Access: Read-only. If you decide to extend this template app, you can update these permissions later.
 
@@ -199,7 +195,11 @@ Note: You can always update these settings later to point to a hosted server.
 
 - GitHub App privacy
 
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/create_app.png?raw=true)
+
 - Click Create GitHub App to create your app!
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-url.png?raw=true)
 
 ## Step 3. Save your private key and App ID
 

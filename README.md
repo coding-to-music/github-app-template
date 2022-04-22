@@ -122,6 +122,39 @@ Forwarding https://smee.io/c6cnRNjYW9wqx1Y3 to http://127.0.0.1:3000/event_handl
 Connected https://smee.io/c6cnRNjYW9wqx1Y3
 ```
 
+## Step 1. Start a new Smee channel
+
+To help GitHub send webhooks to your local machine without exposing it to the internet, you can use a tool called Smee. First, go to https://smee.io and click Start a new channel. If you're already comfortable with other tools that expose your local machine to the internet like ngrok or localtunnel, feel free to use those.
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/smee-new-channel.png?raw=true)
+
+Starting a new Smee channel creates a unique domain where GitHub can send webhook payloads. You'll need to know this domain for the next step. Here is an example of a unique domain at https://smee.io/qrfeVRbFbffd6vD:
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/smee-unique-domain.png?raw=true)
+
+Next, go back to the Terminal and follow these steps to run the Smee command-line interface (CLI) client:
+
+> Note: The following steps are slightly different than the "Use the CLI" instructions you'll see in your Smee channel page. You do not need to follow the "Use the Node.js client" or "Using Probot's built-in support" instructions.
+
+- Install the client:
+
+```java
+npm install --global smee-client
+```
+
+- Run the client (replacing https://smee.io/qrfeVRbFbffd6vD with your own domain):
+
+```java
+smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000
+```
+
+You should see output like the following:
+
+```java
+Forwarding https://smee.io/qrfeVRbFbffd6vD to http://127.0.0.1:3000/event_handler
+Connected https://smee.io/qrfeVRbFbffd6vD
+```
+
 The smee --url <unique_channel> command tells Smee to forward all webhook events received by the Smee channel to the Smee client running on your computer. The --path /event_handler option forwards events to the /event_handler route, which we'll cover in a later section. The --port 3000 option specifies port 3000, which is the port your server will be listening to. Using Smee, your machine does not need to be open to the public internet to receive webhooks from GitHub. You can also open that Smee URL in your browser to inspect webhook payloads as they come in.
 
 We recommend leaving this Terminal window open and keeping Smee connected while you complete the rest of the steps in this guide. Although you can disconnect and reconnect the Smee client without losing your unique domain (unlike ngrok), you may find it easier to leave it connected and do other command-line tasks in a different Terminal window.
@@ -132,25 +165,21 @@ If you don't yet have a GitHub account, now is a great time to join. Don't forge
 
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/app_id.png?raw=true)
 
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/homepage-url.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/new-app.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/sinatra-404.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/smee-unique-domain.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-url.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/create_app.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/install_permissions.png?raw=true)
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-secret.png?raw=true)
 
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/private_key.png?raw=true)
 
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/smee-new-channel.png?raw=true)
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/new-app.png?raw=true)
 
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-secret.png?raw=true)
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/homepage-url.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/create_app.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-url.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/sinatra-404.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/install_permissions.png?raw=true)
 
 GitHub website, showing the **New App**
 

@@ -175,8 +175,6 @@ If you don't yet have a GitHub account, now is a great time to join. Don't forge
 
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-url.png?raw=true)
 
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/install_permissions.png?raw=true)
-
 GitHub website, showing the **New App**
 
 You'll see a form where you can enter details about your app. See "Creating a GitHub App" for general information about the fields on this page. For the purposes of this guide, you'll need to enter specific data in a few fields:
@@ -447,6 +445,8 @@ To install the app, visit the app settings page, choose your app, and click Inst
 You'll be asked whether to install the app on all repositories or selected repositories. If you don't want to install the app on all of your repositories, that's okay! You may want to create a sandbox repository for testing purposes and install your app there.
 
 - App installation permissions
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/install_permissions.png?raw=true)
 
 After you click Install, look at the output in your Terminal. You should see something like this:
 

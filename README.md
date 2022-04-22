@@ -132,17 +132,25 @@ If you don't yet have a GitHub account, now is a great time to join. Don't forge
 
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/app_id.png?raw=true)
 
-app_id.png  
-homepage-url.png  
-new-app.png  
-sinatra-404.png  
-smee-unique-domain.png  
-webhook-url.png
-create_app.png  
-install_permissions.png  
-private_key.png  
-smee-new-channel.png  
-webhook-secret.png
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/homepage-url.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/new-app.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/sinatra-404.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/smee-unique-domain.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-url.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/create_app.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/install_permissions.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/private_key.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/smee-new-channel.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-secret.png?raw=true)
 
 GitHub website, showing the **New App**
 

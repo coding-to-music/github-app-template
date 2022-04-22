@@ -163,21 +163,17 @@ We recommend leaving this Terminal window open and keeping Smee connected while 
 
 If you don't yet have a GitHub account, now is a great time to join. Don't forget to verify your email before continuing! To register a new app, visit the app settings page in your GitHub profile, and click New GitHub App.
 
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/app_id.png?raw=true)
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/new-app.png?raw=true)
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/homepage-url.png?raw=true)
 
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-secret.png?raw=true)
 
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/private_key.png?raw=true)
 
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/new-app.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/homepage-url.png?raw=true)
-
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/create_app.png?raw=true)
 
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/webhook-url.png?raw=true)
-
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/sinatra-404.png?raw=true)
 
 ![image](https://github.com/coding-to-music/github-app-template/blob/main/images/install_permissions.png?raw=true)
 
@@ -218,6 +214,8 @@ After you create your app, you'll be taken back to the app settings page. You ha
 - Note the app ID GitHub has assigned your app. You'll need this to prepare your runtime environment.
 
 - Your app's ID number
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/app_id.png?raw=true)
 
 ## Step 4. Prepare the runtime environment
 
@@ -435,6 +433,8 @@ You should see a response like:
 Once the server is running, you can test it by going to http://localhost:3000 in your browser. If the app works as expected, you'll see a helpful error page:
 
 - Sinatra's 404 error page
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/sinatra-404.png?raw=true)
 
 This is good! Even though it's an error page, it's a Sinatra error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
 

@@ -130,7 +130,7 @@ We recommend leaving this Terminal window open and keeping Smee connected while 
 
 If you don't yet have a GitHub account, now is a great time to join. Don't forget to verify your email before continuing! To register a new app, visit the app settings page in your GitHub profile, and click New GitHub App.
 
-![image]()
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/app_id.png?raw=true)
 
 app_id.png  
 homepage-url.png  

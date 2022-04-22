@@ -45,6 +45,9 @@ class GHAapp < Sinatra::Application
     set :logging, Logger::DEBUG
   end
 
+  get '/' do
+    "Hello World - check out http://localhost:3000/event_handler"
+  end
 
   # Before each request to the `/event_handler` route
   before '/event_handler' do
@@ -55,12 +58,27 @@ class GHAapp < Sinatra::Application
     authenticate_installation(@payload)
   end
 
+  get '/hello' do
+
+    hello_world(@payload)
+
+    200 # success status
+  end
 
   post '/event_handler' do
 
+    logger.debug '/event_handler'
+  
     # # # # # # # # # # # #
     # ADD YOUR CODE HERE  #
     # # # # # # # # # # # #
+
+    case request.env['HTTP_X_GITHUB_EVENT']
+    when 'issues'
+      if @payload['action'] === 'opened'
+        handle_issue_opened_event(@payload)
+      end
+    end
 
     200 # success status
   end
@@ -71,6 +89,27 @@ class GHAapp < Sinatra::Application
     # # # # # # # # # # # # # # # # #
     # ADD YOUR HELPER METHODS HERE  #
     # # # # # # # # # # # # # # # # #
+
+    def hello_world(payload)
+      "Hello World - check out http://localhost:3000/event_handler"
+
+      logger.debug 'Hello World!'
+
+      logger.debug "Here is the payload:-->" 
+      logger.debug payload
+      logger.debug "<--Here is the payload" 
+
+      logger.debug "Project:-->" 
+      # repo = payload['repository']['full_name']
+      # issue_number = payload['issue']['number']
+      # logger.debug repo
+      # logger.debug payload
+      logger.debug "<--Project" 
+    end
+
+    def handle_issue_opened_event(payload)
+      logger.debug 'An issue was opened!'
+    end
 
     # Saves the raw payload and converts the payload to JSON format
     def get_payload_request(request)

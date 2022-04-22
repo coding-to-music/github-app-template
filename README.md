@@ -12,7 +12,161 @@ by
 
 https://docs.github.com/en/developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app
 
-You can use this GitHub App template code as a foundation to create any GitHub App you'd like. You can learn how to configure a template GitHub App by following the "[Setting up your development environment](https://developer.github.com/apps/quickstart-guides/setting-up-your-development-environment/)" quickstart guide on developer.github.com.
+You can use this GitHub App template code as a foundation to create any GitHub App you'd like. You can learn how to configure a template GitHub App by following the "[Setting up your development environment](https://developer.github.com/apps/quickstart-guides/setting-up-your-development-environment/)" quickstart guide on developer.
+github.com.
+
+## Installed:
+
+```java
+bundle install
+```
+
+Output:
+
+```java
+Using public_suffix 4.0.6
+Following files may not be writable, so sudo is needed:
+  /usr/local/bin
+  /var/lib/gems/2.7.0
+  /var/lib/gems/2.7.0/build_info
+  /var/lib/gems/2.7.0/cache
+  /var/lib/gems/2.7.0/doc
+  /var/lib/gems/2.7.0/extensions
+  /var/lib/gems/2.7.0/gems
+  /var/lib/gems/2.7.0/specifications
+Using addressable 2.8.0
+Using bundler 2.3.12
+Using dotenv 2.5.0
+Using faraday-em_http 1.0.0
+Using faraday-em_synchrony 1.0.0
+Using faraday-excon 1.1.0
+Using faraday-httpclient 1.0.1
+Using faraday-net_http 1.0.1
+Using faraday-net_http_persistent 1.2.0
+Using faraday-patron 1.0.0
+Using multipart-post 2.1.1
+Using ruby2_keywords 0.0.4
+Using faraday 1.5.1
+Using jwt 2.1.0
+Using mustermann 1.0.3
+Using sawyer 0.8.2
+Using octokit 4.13.0
+Using rack 2.2.3
+Using rack-protection 2.0.4
+Using tilt 2.0.8
+Using sinatra 2.0.4
+Bundle complete! 4 Gemfile dependencies, 22 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+```
+
+## Errors
+
+```java
+bundle exec ruby template_server.rb
+```
+
+```java
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1641: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann.rb:62: warning: The called method `new' is defined here
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/pattern.rb:59: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/regular.rb:22: warning: The called method `initialize' is defined here
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1604: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1621: warning: The called method `compile!' is defined here
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/pattern.rb:59: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/regexp_based.rb:17: warning: The called method `initialize' is defined here
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/ast/compiler.rb:43: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/ast/compiler.rb:49: warning: The called method `pattern' is defined here
+Traceback (most recent call last):
+        8: from template_server.rb:2:in `<main>'
+        7: from template_server.rb:2:in `require'
+        6: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit.rb:4:in `<top (required)>'
+        5: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit.rb:4:in `require'
+        4: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/default.rb:1:in `<top (required)>'
+        3: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/default.rb:1:in `require'
+        2: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/middleware/follow_redirects.rb:9:in `<top (required)>'
+        1: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/middleware/follow_redirects.rb:11:in `<module:Octokit>'
+/var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/middleware/follow_redirects.rb:14:in `<module:Middleware>': uninitialized constant Faraday::Error::ClientError (NameError)
+Did you mean?  Faraday::ClientError
+```
+
+```java
+sudo bundle exec ruby template_server.rb
+```
+
+```java
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1641: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann.rb:62: warning: The called method `new' is defined here
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/pattern.rb:59: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/regular.rb:22: warning: The called method `initialize' is defined here
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1604: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1621: warning: The called method `compile!' is defined here
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/pattern.rb:59: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/regexp_based.rb:17: warning: The called method `initialize' is defined here
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/ast/compiler.rb:43: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/ast/compiler.rb:49: warning: The called method `pattern' is defined here
+Traceback (most recent call last):
+        8: from template_server.rb:2:in `<main>'
+        7: from template_server.rb:2:in `require'
+        6: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit.rb:4:in `<top (required)>'
+        5: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit.rb:4:in `require'
+        4: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/default.rb:1:in `<top (required)>'
+        3: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/default.rb:1:in `require'
+        2: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/middleware/follow_redirects.rb:9:in `<top (required)>'
+        1: from /var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/middleware/follow_redirects.rb:11:in `<module:Octokit>'
+/var/lib/gems/2.7.0/gems/octokit-4.13.0/lib/octokit/middleware/follow_redirects.rb:14:in `<module:Middleware>': uninitialized constant Faraday::Error::ClientError (NameError)
+Did you mean?  Faraday::ClientError
+```
+
+## Fixed by bumping up Octokit to the latest 4.21.0
+
+```
+Installing ruby2_keywords 0.0.5 (was 0.0.4)
+Installing faraday-rack 1.0.0
+Installing public_suffix 4.0.7 (was 4.0.6)
+Installing faraday-retry 1.0.3
+Using jwt 2.1.0
+Using mustermann 1.0.3
+Using rack 2.2.3
+Using tilt 2.0.8
+Fetching faraday-multipart 1.0.3
+Installing faraday-multipart 1.0.3
+Using rack-protection 2.0.4
+Using sinatra 2.0.4
+Using addressable 2.8.0
+Fetching faraday 1.10.0 (was 1.5.1)
+Installing faraday 1.10.0 (was 1.5.1)
+Using sawyer 0.8.2
+Fetching octokit 4.21.0 (was 4.13.0)
+Installing octokit 4.21.0 (was 4.13.0)
+Bundle complete! 4 Gemfile dependencies, 25 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+```
+
+## Run the server
+
+```java
+bundle exec ruby template_server.rb
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1641: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann.rb:62: warning: The called method `new' is defined here
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/pattern.rb:59: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/regular.rb:22: warning: The called method `initialize' is defined here
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1604: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1621: warning: The called method `compile!' is defined here
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/pattern.rb:59: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/regexp_based.rb:17: warning: The called method `initialize' is defined here
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/ast/compiler.rb:43: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/mustermann-1.0.3/lib/mustermann/ast/compiler.rb:49: warning: The called method `pattern' is defined here
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1348: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1359: warning: The called method `add_filter' is defined here
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1360: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1621: warning: The called method `compile!' is defined here
+/var/lib/gems/2.7.0/gems/sinatra-2.0.4/lib/sinatra/base.rb:1525: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/rack-2.2.3/lib/rack/handler/webrick.rb:26: warning: The called method `run' is defined here
+[2022-04-22 05:32:33] INFO  WEBrick 1.6.0
+[2022-04-22 05:32:33] INFO  ruby 2.7.0 (2019-12-25) [x86_64-linux-gnu]
+== Sinatra (v2.0.4) has taken the stage on 3000 for development with backup from WEBrick
+[2022-04-22 05:32:33] INFO  WEBrick::HTTPServer#start: pid=177029 port=3000
+```
 
 ## Install
 

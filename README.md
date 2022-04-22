@@ -187,8 +187,6 @@ Note: You can always update these settings later to point to a hosted server.
 
 - Form with webhook secret filled in
 
-![image](https://github.com/coding-to-music/github-app-template/blob/main/images/private_key.png?raw=true)
-
 - On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions" section, scroll down to "Metadata" and select Access: Read-only. If you decide to extend this template app, you can update these permissions later.
 
 - At the bottom of the Permissions & Webhooks page, specify whether this is a private app or a public app. This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting Only on this account.
@@ -208,6 +206,8 @@ After you create your app, you'll be taken back to the app settings page. You ha
 - Generate a private key for your app. This is necessary to authenticate your app later on. Scroll down on the page and click Generate a private key. Save the resulting PEM file (called something like app-name-date-private-key.pem) in a directory where you can find it again.
 
 - The private key generation dialog
+
+![image](https://github.com/coding-to-music/github-app-template/blob/main/images/private_key.png?raw=true)
 
 - Note the app ID GitHub has assigned your app. You'll need this to prepare your runtime environment.
 
